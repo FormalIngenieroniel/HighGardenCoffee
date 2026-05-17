@@ -9,23 +9,12 @@ venv/
 .env/
 .envrc
 
-
-
 # AWS Cloud9
 .c9/
 *.c9userdata
 
-
-
-
-
-
 # Environment variables
 .env
-
-
-
-
 
 # Temporary files
 tmp/
