@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.envrc
+
+
+
+# AWS Cloud9
+.c9/
+*.c9userdata
+
+
+
+
+
+
+# Environment variables
+.env
+
+
+
+
+
+# Temporary files
+tmp/
+temp/
