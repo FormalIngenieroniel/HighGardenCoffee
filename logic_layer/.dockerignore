@@ -1,0 +1,31 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+venv/
+.env/
+.envrc
+
+# AWS Cloud9
+.c9/
+*.c9userdata
+
+# Logs
+*.log
+
+# Variables sensibles
+.env
+
+# Temporales
+tmp/
+temp/
+
+# Sistema
+.DS_Store

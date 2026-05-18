@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+langchain>=0.2.0,<0.3.0
+langchain-community>=0.2.0,<0.3.0
+langchain-core>=0.2.0,<0.3.0
+langchain-google-genai
+pandas
+lightgbm==4.6.0
+joblib
