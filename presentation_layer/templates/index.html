@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Se define la base de la web -->
+    <meta charset="UTF-8">
+    <title>Coffee Market AI Simulator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Se crea la seccion que tendra el deslizador de los paises -->
+    <div class="top-ticker">
+        <div class="ticker-label">Países Disponibles:</div>
+        <div class="ticker-wrapper">
+            <div class="ticker-content" id="ticker-content">
+                {% for pais in paises %}
+                    <span class="ticker-item">{{ pais }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Se crea la seccion que tendra la parte principal de la aplicacion -->
+    <div class="main-container">
+        
+        <!-- 
+        Se crea la seccion que tendra las pequeñas graficas generales del consumo 
+        global y la opcion de ver el conjunto de datos completo 
+        -->
+        <div class="dashboard-sidebar">
+            <h3>Datos Globales del Mercado</h3>
+            
+            <div class="chart-container">
+                <h4>Tipos de Café (Global)</h4>
+                <canvas id="coffeeTypeChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <div class="header-with-button">
+                    <h4>Top 5 Consumidores</h4>
+                    <button id="btn-full-data" class="small-btn">Datos completos</button>
+                </div>
+                <div class="canvas-wrapper" style="position: relative; height: 220px;">
+                    <canvas id="topConsumersChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h4>Tendencia Precio Global</h4>
+                <canvas id="priceTrendChart"></canvas>
+            </div>
+        </div>
+
+       <!-- 
+       Se crea la seccion que tendra la funcion del chatbot, es un form que recibe 
+       la pregunta y la envia por medio del endpoint /ask 
+       -->
+        <div class="main-chat">
+            <div id="chat-box"></div>
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Ej: Simula el consumo de Angola para 2020, consumo global se mantiene..." required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <!-- Se crea la seccion que tendra la parte de los pasos logicos del agente -->
+        <div class="agent-thoughts">
+            <h3>Procesamiento Lógico del Agente</h3>
+            <pre id="thoughts-box">Esperando interacción...</pre>
+        </div>
+        
+    </div>
+
+    <!-- Se crea la seccion que tendra la visualizacion de los datos completos -->
+    <div id="dataModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Dataset Completo</h2>
+            <div class="table-container">
+                <table id="csvDataTable" class="data-table">
+                    <thead>
+                        <tr id="tableHeaders"></tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr><td>Cargando datos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
