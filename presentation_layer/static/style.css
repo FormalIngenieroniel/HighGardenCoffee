@@ -1,0 +1,326 @@
+:root {
+    --primary-color: #2C3E50;
+    --accent-color: #D35400;
+    --bg-main: #F8F9FA;
+    --border-color: #E2E8F0;
+    --text-dark: #334155;
+    --ticker-bg: #1a252f; 
+    --ticker-text: #ecf0f1; 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+}
+
+.top-ticker {
+    display: flex;
+    align-items: center;
+    background-color: var(--ticker-bg);
+    color: var(--ticker-text);
+    height: 45px;
+    padding: 0 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.ticker-label {
+    font-weight: 600;
+    margin-right: 20px;
+    color: var(--accent-color);
+    white-space: nowrap;
+    z-index: 2;
+    background-color: var(--ticker-bg); 
+    box-shadow: 10px 0 10px var(--ticker-bg); 
+}
+
+.ticker-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 60s linear infinite; 
+}
+
+.ticker-wrapper:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 25px;
+    font-size: 0.95rem;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.ticker-item::after {
+    content: "•";
+    position: absolute;
+    right: -3px;
+    color: #555;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden; 
+}
+
+.dashboard-sidebar {
+    width: 300px;
+    background-color: #ffffff;
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.dashboard-sidebar h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 0;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.chart-container {
+    margin-bottom: 25px;
+    background: var(--bg-main);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.header-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chart-container h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.small-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+}
+
+.main-chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    background-color: #ffffff;
+}
+
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 14px 18px;
+    border-radius: 8px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.message.user {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.message.agent {
+    background-color: white;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    align-self: center;
+    border: 1px solid #f87171;
+}
+
+#chat-form {
+    display: flex;
+    gap: 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#user-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+}
+
+button {
+    padding: 14px 28px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #bf4b00;
+}
+
+.agent-thoughts {
+    width: 350px; 
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 1px solid #000;
+}
+
+.agent-thoughts h3 {
+    color: #4fc1ff;
+    font-size: 1.1rem;
+    margin-top: 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    font-weight: normal;
+}
+
+#thoughts-box {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.thought-step {
+    margin-bottom: 15px;
+    background-color: #252526;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+.thought-step strong { color: #c586c0; } 
+.tool-input { color: #ce9178; display: block; margin-top: 5px; }
+.observation { color: #9cdcfe; display: block; margin-top: 5px; } 
+hr { border: 0; height: 1px; background-color: #333; margin: 15px 0; }
+.loading { color: #f1c40f; font-style: italic; }
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; 
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.table-container {
+    overflow-y: auto;
+    flex: 1;
+    margin-top: 15px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.data-table thead th {
+    background-color: var(--bg-main);
+    color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
