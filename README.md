@@ -6,7 +6,7 @@ La solución está desplegada en una arquitectura de **microservicios distribuid
 
 > 📄 **Documento oficial:** Para una descripcion mas detallada de la arquitectura, objetivos, and y resultados, leer el [**Documento final del proyecto**](Prueba%20Tec%20NTT%20Daniel%20Bernal.pdf).
 
-> 📄 **Video de la presentacion:** Para una presentacion general de la arquitectura, codigo y demostracion en vivo, ver el [**Video de presentacion**]((https://youtu.be/Gi_zPpKof0w)).
+> 📄 **Video de la presentacion:** Para una presentacion general de la arquitectura, codigo y demostracion en vivo, ver el [**Video de presentacion**] https://youtu.be/Gi_zPpKof0w.
 
 ---
 
